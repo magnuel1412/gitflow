@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Release</title>
+    <link rel="stylesheet" type="text/css" href="estilos/release.css">
+    <link rel="stylesheet" type="text/css" href="estilos/boton.css">
+
+</head>
+<script>
+    function copiarAlPortapapeles(id_elemento) {
+        var aux = document.createElement("input");
+        aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+    }
+</script>
+
+<body>
+    <h1>Ramas release</h1>
+    <div>
+        Como las ramas feature, las ramas release también tienen que surgir de la rama develop. Contienen el código de
+        la versión que se va a liberar próximamente. Es un paso previo y preparatorio para la versión definitiva de
+        producción. En ella se incluye todo el código de develop necesario para el lanzamiento. Puede que contenga algún
+        error pequeño que se debe de arreglar en este momento para no incluirlo en producción. Una vez finalizada la
+        rama, esta se debe incluir tanto en la rama develop como en la rama master.
+
+        Convención de nombres: deben de seguir la siguiente convención: release-*, sustituyendo el * por el número de
+        versión (1.1, 2.3, 4.7, etc)
+        <div>
+            <h3> Crear rama release </h3>
+
+
+            <table id="cod">
+                <tbody>
+                    <tr>
+                        <th>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p1')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p1"> git checkout -b release-1.2 develop </code>
+                            <br>
+                            <br>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p2')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p2"> git commit -a -m "Release version 1.2 of the project"</code>
+                        </th>
+
+
+                        <th>
+                            <ul id="fo" class="foto">
+                                <li><a title="Crear rama release">
+                                        <img id="p12" src="imagenes/p1.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+            <h3>Finalizar una rama release</h3>
+            <p>Primero debemos actualizar la rama master.</p>
+            <table id="cod">
+                <tbody>
+                    <tr>
+                        <th>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p3')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p3"> git checkout master </code>
+                            <br>
+                            <br>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p4')">Copiar</span>
+                            </div>
+                            <br>
+
+                            <code id="p4"> git merge --no-ff release-1.2 </code>
+                            <br>
+                            <br>
+
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p3')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p3">  git tag -a 1.2 </code>
+                            <br>
+                        </th>
+
+
+                        <th>
+                            <ul id="fo" class="foto">
+                                <li><a title="Crear rama release">
+                                        <img  id="p12" src="imagenes/p2.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+
+
+            <p>A continuación, debemos guardar esos cambios en la rama develop.</p>
+
+            <table id="cod">
+                <tbody>
+                    <tr>
+                        <th>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p6')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p6"> git checkout develop</code>
+                            <br>
+                            <br>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p7')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p7">git merge --no-ff release-1.2</code>
+
+                            <br>
+                        </th>
+
+
+                        <th>
+                            <ul id="fo" class="foto">
+                                <li><a title="Crear rama release">
+                                        <img id="p3" src="imagenes/p3.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+
+            <p>Una vez integrada la rama tanto en master como en develop eliminaremos
+                la rama en el repositorio local.</p>
+
+            <table id="cod">
+                <tbody>
+                    <tr>
+                        <th>
+                            <div id="separar">
+                                <span class="boton3" onclick="copiarAlPortapapeles('p7')">Copiar</span>
+                            </div>
+                            <br>
+                            <code id="p7">  git branch -d release-1.2</code>
+                            <br>
+                        </th>
+
+
+                        <th>
+                            <ul id="fo" class="foto">
+                                <li><a title="Crear rama release">
+                                        <img id="p4" src="imagenes/p4.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </th>
+                    </tr>
+
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div>
+
+        </div>
+    </div>
+</body>
+
+</html>

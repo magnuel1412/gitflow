@@ -1,0 +1,48 @@
+ul.foto{
+	width: 970px;
+	margin: 25 10 0px 10px
+}
+
+ul.foto li{
+	display: inline;
+}
+ 
+ul.foto a{
+	display: inline;
+	float: left;
+	margin: 15 15 15px 15px;
+	width: auto;
+	text-align: center;
+	color: #333;
+	font-size: 18px;
+	box-shadow: 10 3px 6px rgba(0,100,100, .25);
+	transform: rotate(2deg);
+}
+
+ul.foto img{
+	display: block;
+	width: 190px;
+	margin-bottom: 12px;
+}
+
+ul.foto a:after{
+	content: attr(title);
+}
+
+ul.foto li:nth-child(3n) a{
+	transform: none;
+	position: relative;
+
+}
+ul.foto li:nth-child(5n) a{
+	transform: rotate(-10deg);
+	position: relative;
+	right: 15px;
+	
+}
+
+ul.foto li a:hover{
+	transform: scale(1.25);
+	box-shadow: 0 3px 6px rgba(0,0,0.5);
+	position: relative;
+}

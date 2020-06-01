@@ -1,0 +1,65 @@
+#formacion li, #experiencia li, #pasatiempo li{
+	color: #00F; /*morado*/
+}
+
+#formacion li strong, #experiencia li strong, #pasatiempo li strong{
+	color: #090; /* verde*/
+}
+
+@media(min-width: 1201px){
+	#datos{
+	float: left;
+	width: 30%;
+
+	}
+
+	#curriculo{
+	float: left;
+	width: 50%;
+	}
+
+	#formacion{
+	float: left;
+	width: 50%;
+	}
+
+	#experiencia{
+	float: left;
+	width: 50%;
+	}
+
+	#pasatiempo{
+	float: left;
+	width: 50%;
+	}
+}
+
+@media(min-width: 601px) and (max-width: 1200px){
+	body{
+		font-family: Arial,sans-serif;
+	}
+	#datos{
+	float: left;
+	width: 30%;
+
+	}
+
+	#curriculo{
+	float: right;
+	width: 50%;
+	}
+
+	#datos ul{
+		list-style-type: none;
+		padding: 0;
+	}
+
+	#datos li + li{
+		margin-top: 5px;
+	}	
+	#datos li strong{
+		display: block;
+	}
+}
+ 
+
